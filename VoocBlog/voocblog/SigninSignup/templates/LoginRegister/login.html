@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="form-cover" method="POST">
+        {% csrf_token %}
+        {% for key, value in form.errors.items %}
+            {{value}}
+        {% endfor%}
+        
+        
+        <input type="hidden" name="next" value="/"/>
+        <input type="submit" class="btn-login" value="Login"/> 
+    </form>
+</body>
+</html>

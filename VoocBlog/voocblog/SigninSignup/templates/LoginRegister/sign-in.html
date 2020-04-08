@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+	<div class="background">
+		<div class="wrapper">
+			<div class="form">
+				<div id="login-form">
+	            	<img src="{% static 'images/logo-vooc.png' %}" class="logo-header"/>
+					<h1>Đăng nhập</h1>
+	            	<form class="form-cover" method="POST" action="{% url 'signin' %}">
+						{% csrf_token %}
+						{% for key, value in form.errors.items %}
+							{{value}}
+						{% endfor%}
+						<input class="type-input" type="email" name="username" required="required" placeholder="Email của bạn" /></input>
+	                	<input class="type-input" type="password" name="password" required="required" placeholder="Mật khẩu" /></input>
+						<button type="submit" class="btn-login" value="/">Đăng nhập</button>
+						{% comment %} <input type="hidden" name="next" value="/" />
+						<input type="submit" class="btn-login" value="Login"/>  {% endcomment %}
+					</form>
+	            	<p><a href="" class="forget-pass">Quên mật khẩu?</a></p>
+	            	<br>
+	            	<p>Chưa có tài khoản? <a href="{% url 'signup' %}" >Đăng ký ngay</a></p>
+				</div>
+		
+			</div>
+		</div>
+	</div>
+	
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+	<div class="background">
+		<div class="wrapper">
+			<div class="form">
+				<div id="signup-form">
+	            	<img src="{% static 'images/logo-vooc.png' %}" class="logo-header"/>
+					<h1>Đăng ký</h1>
+	            	<form class="form-cover">
+	                	<input class="type-input input-username" type="text" name="username" placeholder="Họ tên" />
+	                	<select name="" class="style-select" >
+	                		<option value=""><span>Chọn giới tính</span></option>
+							<option value="Male">Nam</option>
+							<option value="Female">Nữ</option>
+						</select>	
+	                	<input class="type-input input-email" type="email" name="email" placeholder="Email của bạn" />
+	                	<input class="type-input input-password" type="password" name="password" placeholder="Mật khẩu" />
+	                	<!-- <p class="csbm"><input type="checkbox" class="checkbox">
+	                		Đồng ý với <a href="">Chính sách & bảo mật</a></p> -->
+	                	<input class="checkbox" type="checkbox">
+	                		<span>Đồng ý với <a href="">Chính sách & bảo mật</a></span>
+	                	<button type="submit" class="btn-login">Đăng ký</button>
+	            	</form>
+	            	<p><a href="" class="forget-pass">Quên mật khẩu?</a></p>
+	            	<br>
+	            	<p>Đã có tài khoản? <a href="{% url 'signin' %}">Đăng nhập ngay</a></p>
+				</div>				
+			</div>
+		</div>
+	</div>
+	
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
+</html>

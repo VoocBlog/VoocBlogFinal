@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+	<meta charset="UTF-8">
+	<title>{% block title %} {% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/login.css'%}" type='text/css'>
+    
+</head>
+<body>
+	<div class="background">
+		<div class="wrapper">
+			{% block content %}
+			
+			{% endblock %}
+		</div>
+	</div>
+	<script defer src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script defer src="{% static 'js/login.js' %}"></script>
+</body>
+	
+</html>
