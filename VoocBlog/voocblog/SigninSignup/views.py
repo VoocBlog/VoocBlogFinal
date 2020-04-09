@@ -2,21 +2,48 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
+from . import ValidateRegister
 from django.db import models
 from django.http import HttpResponseRedirect
+from roles.models import Post
 
+import logging
 from django import forms
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'pages/home.html')
+    data = {'Post' : User.objects.all().order_by("pub_date_post")}
+    return render(request, 'pages/index.html')
+
+def error(request):
+    return render(request, 'pages/error.html')
 
 # def login(request):
 #     return render(request, 'LoginRegister/sign-in.html')
 
+# def signup(request):
+#     return render(request, 'LoginRegister/sign-up.html')
+
 def signup(request):
-    return render(request, 'LoginRegister/sign-up.html')
+    if request.method == 'POST':
+        enterFName = request.POST['firstName']
+        enterLName = request.POST['lastName']
+        enterEmail = request.POST['username']
+        enterPassword = request.POST['password']
+        enterConfirmPassword = request.POST['confirmPassword']
+
+        if ValidateRegister.Validate_Username(enterEmail):
+            if ValidateRegister.Validate_Password(enterPassword, enterConfirmPassword):
+                ValidateRegister.save(enterEmail, enterPassword, enterFName, enterLName)
+                return HttpResponseRedirect('/')
+                #return logging.info("Correct")
+            else:
+                logging.debug('Password not match')
+                return render(request, "pages/error.html")
+        else:
+            return HttpResponseRedirect('error')
+    return render(request, "LoginRegister/sign-up.html")
 
 
 def login(request):

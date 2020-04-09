@@ -2,9 +2,8 @@
 {% block content %}
     <h1>Profile</h1>
     {% for user in Query %}
-        <h2>Welcome <span style="color: rgb(15, 207, 15);">{{user.username}}</h2>
-        Query.password
-        <h5>Email id: {{user.email}}</h5>
+        <h2>Welcome </h2>
+        <h3><span style="color: rgb(15, 207, 15);">{{user.username}}</h3>
         <h5>First Name: {{ user.first_name}}</h5>
         <h5>Last Name: {{user.last_name}}</h5>
         <p><a href="{% url 'signin' %}">Logout</a></p>

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Home page</title>
 	<link rel="stylesheet" href="">
-	<link rel="stylesheet" href="css/masonry.css">
-  	<link rel="stylesheet" href="css/back-to-top.css">
-  	<link rel="stylesheet" href="css/fontawesome.min.js">
-  	<link rel="stylesheet" href="css/solid.js">
-    <link rel="stylesheet" href="css/posting-page.css">
-    <link rel="stylesheet" type="text/css" href="css/slide.css">
-    <link rel="stylesheet" type="text/css" href="css/style-nav-bar.css">
+	<link rel="stylesheet" href="{% static 'css/masonry.css' %}">
+  	<link rel="stylesheet" href="{% static 'css/back-to-top.css' %}">
+  	<link rel="stylesheet" href="{% static 'css/fontawesome.min.js' %}">
+  	<link rel="stylesheet" href="{% static 'css/solid.js' %}">
+    <link rel="stylesheet" href="{% static 'css/posting-page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slide.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-nav-bar.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	
@@ -20,10 +21,10 @@
 <body>
 	<div class="block-slide">
         <div class="any-slide">
-            <div class="slide active"><img class="width100" src="images/1.png" alt=""></div>
-            <div class="slide"><img class="width100" src="images/2.png" alt=""></div>
-            <div class="slide"><img class="width100" src="images/3.png" alt=""></div>
-            <div class="slide"><img class="width100" src="images/4.png" alt=""></div>
+            <div class="slide active"><img class="width100" src="{% static 'images/1.png'%}" alt=""></div>
+            <div class="slide"><img class="width100" src="{% static 'images/2.png'%}" alt=""></div>
+            <div class="slide"><img class="width100" src="{% static 'images/3.png'%}" alt=""></div>
+            <div class="slide"><img class="width100" src="{% static 'images/3.png'%}" alt=""></div>
         </div>
         <div class="button-slide">
             <span id="btn-prev"><i class="fas fa-chevron-left"></i></span>
@@ -41,14 +42,14 @@
         <div class="navigation-bar">
                 <ul class="bg-nav-bar">
                     <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
-                    <li><a href="">Đăng nhập</a></li>
-                    <li><a href="">Đăng ký</a></li>             
+                    <li><a href="{% url 'signin' %}">Đăng nhập</a></li>
+                    <li><a href="{% url 'signup' %}">Đăng ký</a></li>             
                 </ul>
         </div>
         <div class="mota">
             <br>
             <div>
-                <img class="deg-10" src="images/bg3.jpg" width="250" alt="">
+                <img class="deg-10" src="{% static 'images/bg3.jpg'%}" width="250" alt="">
             </div>
             <div class="blog-desc">
                 <h2>Chủ blog confession</h2>
@@ -61,7 +62,7 @@
                 <input type="text" id="search-bar" placeholder="Bạn muốn tìm gì?">
                 <a href="#">
 
-                    <img class="search-icon" src="images/search-icon.png">
+                    <img class="search-icon" src="{% static 'images/search-icon.png'%}">
                 </a>
             </form>
         </div>
@@ -84,7 +85,7 @@
         <div id="image">
             <p class="label">Ảnh bài viết <span style="color: red;">*</span></p>
             <button id="up-image-btn">
-                <img src="images/camera-icon.png/" alt="Camera icon" srcset="" width="10%"> 
+                <img src="{% static 'images/camera-icon.png'%}" alt="Camera icon" srcset="" width="10%"> 
                 <br>Tải ảnh lên
             </button>
         </div>
@@ -103,15 +104,16 @@
         <br><br>
             <div class="masonry">
                 <div class="brick color-div">
-                    <img src="images/cherry-plant.jpg" alt="Cherry plant" title="Cherry plant">
+                    <img src="{% static 'images/camera-icon.png'%}" 
+                    ="Cherry plant" title="Cherry plant">
                     <p style="margin: 10px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quia consequuntur sunt iste labore!</p>
                 </div>
                 <div class="brick">
-                    <img src="images/macbook.jpg" alt="Oranges and Pomegranates" title="Oranges and Pomegranates">
+                    <img src="{% static 'images/macbook.jpg'%}" alt="Oranges and Pomegranates" title="Oranges and Pomegranates">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint aliquam ut, rerum excepturi commodi, accusantium.</p>
                 </div>
                 <div class="brick">
-                    <img src="images/strawberry.jpg" alt="Strawberry" title="Strawberry">
+                    <img src="{% static 'images/strawberry.jpg'%}" alt="Strawberry" title="Strawberry">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione exercitationem, soluta ipsa dolores a corrupti voluptatibus.</p>
                 </div>
                 <div class="brick">
@@ -213,11 +215,11 @@
         </div>
     </div>
 	
-    <script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/back-to-top.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/slide.js"></script>
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'js/back-to-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/slide.js' %}"></script>
     <script>
         $(document).ready(function(){
             $("a[value='showtext']").click(function(){
