@@ -19,8 +19,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title_post
-    def was_published_recently(self):
-        return self.pub_date_post >= timezone.now() - datetime.timedelta(days=1)
+    # def was_published_recently(self):
+    #     return self.pub_date_post >= timezone.now() - datetime.timedelta(days=1)
         
 class Interaction(models.Model):   
     content_cmt = models.TextField()

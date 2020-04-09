@@ -13,8 +13,8 @@ from django import forms
 
 # Create your views here.
 def index(request):
-    data = {'Post' : User.objects.all().order_by("pub_date_post")}
-    return render(request, 'pages/index.html')
+    data = {'Posts':Post.objects.all().order_by("-pub_date_post")}
+    return render(request, 'pages/index.html', data)
 
 def error(request):
     return render(request, 'pages/error.html')

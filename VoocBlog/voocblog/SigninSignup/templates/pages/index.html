@@ -99,13 +99,11 @@
     <a id="button"><i class="fas fa-angle-up"></i></a>
 
     <div id="list-cate" class="container">
-  
         <div class="wrapper">
         <br><br>
             <div class="masonry">
-                <div class="brick color-div">
-                    <img src="{% static 'images/camera-icon.png'%}" 
-                    ="Cherry plant" title="Cherry plant">
+                <div class="brick">
+                    <img src="{% static 'images/camera-icon.png'%}" alt="Cherry plant" title="Cherry plant">
                     <p style="margin: 10px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quia consequuntur sunt iste labore!</p>
                 </div>
                 <div class="brick">
@@ -116,23 +114,15 @@
                     <img src="{% static 'images/strawberry.jpg'%}" alt="Strawberry" title="Strawberry">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione exercitationem, soluta ipsa dolores a corrupti voluptatibus.</p>
                 </div>
-                <div class="brick">
-                    
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione exercitationem, soluta ipsa dolores a corrupti voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum vero eligendi delectus possimus minus eum.</p>
-                </div>
-
-                <div class="brick">
-                    <img src="images/sosanh.jpg" alt="Blueberries" title="Blueberries">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                </div>
-                <div class="brick">
-                    <img src="images/moto.png" alt="Pears" title="Pears">
-                    <p>Lorem ipsum dolor sit amet. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur et nulla omnis maiores enim similique ratione voluptas obcaecati, animi hic voluptatibus quasi beatae repellendus, accusamus totam ipsum at dolore ut.</p>
-                </div>
-                <div class="brick">
-                    <img src="images/easter-eggs.jpg" alt="Easter-eggs" title="Easter-eggs">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto porro nam, omnis numquam maiores amet? Quae quos, mollitia aliquam deserunt!</p>
-                </div>
+                {% for post in Posts %}
+                    <img src="{{post.image.url}}" alt="{{post.title_post}}" title="{{post.title_post}}">
+                    {% comment %} <h5>{{post.pub_date_post}}</h5> {% endcomment %}
+                    {% comment %} 
+                    Or implement like this to define how the date-time displays
+                    <h4>{{post.pub_date|date:"d-M-Y"}}</h4> 
+                    {% endcomment %}
+                    <p>{{post.body_post}}</p>
+                {% endfor %}
                 <div class="brick">
                     <img src="images/lemons.jpg" alt="Lemons" title="Lemons">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates ipsum ad sapiente cupiditate minima autem mollitia nemo molestiae veniam temporibus!</p>
