@@ -1,9 +1,10 @@
 import re
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
-
-def login(self):
+def login(self, request):
     
     if request.method == 'POST':
         inputUsername = request.POST['username']

@@ -1,0 +1,93 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+.top-page {
+	top: 0;
+}
+.bg {
+	background-color: #aeaeae;
+}
+
+		/*.navigation-bar {
+			top: 0;
+			position: -webkit-sticky;
+			position: sticky;
+		}
+*/
+.bg img {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+#abc {
+	display: none;
+}
+
+ul.bg-nav-bar {
+	margin-top: 0;
+	list-style-type: none;
+  	overflow: hidden;
+  	background-color: #333;
+}
+		
+li {
+  	float: right;
+  	text-align: right;
+}
+
+li a {
+  	display: block;
+  	color: white;
+  	text-align: center;
+  	padding: 14px 16px;
+  	text-decoration: none;
+  	cursor: pointer;
+}
+
+.mota {
+	/*overflow: auto;*/
+	height: auto;
+}
+
+.mota .deg-10 {
+	float: left;
+	margin: 10px 60px;
+	border: 2px solid red;
+	transform: rotate(-10deg);
+	border-radius: 10px;
+	width: 20%;
+	top: 10px;
+}
+
+.mota .blog-desc {
+	width: 94%;
+
+}
+
+.mota div {
+	margin-right: 70px;
+}
+
+h1 {
+			
+}
+
+.itaewon {
+	margin: 10px 10px;
+}
+
+.itaewon img{
+			
+}
+
+.mota h2 {
+	font-weight: normal;
+	text-transform: uppercase;		
+}
+		
+.mota p {
+	line-height: 30px;
+	font-size: 20px;
+}

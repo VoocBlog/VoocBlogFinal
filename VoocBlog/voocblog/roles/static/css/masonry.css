@@ -1,0 +1,80 @@
+/* Defaults */
+body {
+  background: #F5F1F8;
+  color: #465665;
+}
+
+a {
+  color: #5b7083;
+  transition: all .25s ease-in-out;
+}
+
+
+/**
+ * CONTENT WRAPPER
+ */
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  max-width: 70%;
+  background-color: #F5F1F8;
+  margin-top: -50px;
+}
+
+.masonry img,.masonry video {
+  max-width: 100%;
+  vertical-align: middle;
+  background-color: #F5F1F8;
+  
+}
+
+/* Masonry grid */
+.masonry {
+  transition: all .5s ease-in-out;
+  column-gap: 30px;
+  column-fill: initial;
+}
+
+/* Masonry item */
+.masonry .brick {
+  margin-bottom: 30px;
+  display: inline-block; /* Fix the misalignment of items */
+  vertical-align: top; /* Keep the item on the very top */
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.masonry .brick p {
+  margin: 15px;
+}
+
+/* Masonry image effects */
+.masonry .brick img {
+  transition: all .5s ease-in-out;
+  backface-visibility: hidden; /* Remove Image flickering on hover */
+  cursor: pointer;
+}
+
+.masonry .brick:hover img {
+  opacity: .75;
+}
+
+
+
+/* Masonry on tablets */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+/* Masonry on big screens */
+@media only screen and (min-width: 1024px) {
+
+  .masonry {
+    column-count: 4;
+  }
+}

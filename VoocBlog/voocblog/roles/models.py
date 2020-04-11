@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
+from django.utils.translation import ugettext_lazy
+from django.utils.text import slugify
 
 import datetime
 # Create your models here.
