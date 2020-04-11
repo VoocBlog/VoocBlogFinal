@@ -3,8 +3,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
 
-def login(self):
-    
+def login(self): 
     if request.method == 'POST':
         inputUsername = request.POST['username']
         inputPassword = request.POST['password']

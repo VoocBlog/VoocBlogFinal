@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
 from . import ValidateRegister
+from . import session_user
 from django.db import models
 from django.http import HttpResponseRedirect
 from roles.models import Post
@@ -14,6 +15,8 @@ from django import forms
 # Create your views here.
 def index(request):
     data = {'Posts':Post.objects.all().order_by("-pub_date_post")}
+    # if (request.session.has_key('username')):
+    #     login_user = request.session['username']
     return render(request, 'pages/index.html', data)
 
 def error(request):
@@ -42,7 +45,7 @@ def signup(request):
                 logging.debug('Password not match')
                 return render(request, "pages/error.html")
         else:
-            return HttpResponseRedirect('error')
+            return HttpResponseRedirect('profile')
     return render(request, "LoginRegister/sign-up.html")
 
 
@@ -75,10 +78,12 @@ def login(request):
     return render(request, 'LoginRegister/sign-in.html')
 
 def profile(request):
+    #query = session_user.TakeUserOfSessionLogin()
+    #return render(request,'pages/profile.html', {'Query'})
     if request.session.has_key('username'):
         loginUser = request.session['username']
         query = User.objects.filter(username = loginUser)
-        return render(request, 'pages/profile.html', {'Query':query})
+        return render(request, 'pages/homelogin.html', {'Query':query})
     else:
         return render(request, 'LoginRegister/sign-in.html')
 

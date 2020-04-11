@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index),
     path('login/', views.login, name='signin'),
     path('register/', views.signup, name='signup'),
+    path('newest/', views.logout, name='logout'),
     path('login/profile/', views.profile, name='profile'),
     path('register/error/', views.error, name='error')
     #path('login/', auth_views.LoginView.as_view(template_name = "LoginRegister/sign-in.html"), name='signup'),
