@@ -35,7 +35,7 @@ def signup(request):
         enterEmail = request.POST['username']
         enterPassword = request.POST['password']
         enterConfirmPassword = request.POST['confirmPassword']
-
+        
         if ValidateRegister.Validate_Username(enterEmail):
             if ValidateRegister.Validate_Password(enterPassword, enterConfirmPassword):
                 ValidateRegister.save(enterEmail, enterPassword, enterFName, enterLName)

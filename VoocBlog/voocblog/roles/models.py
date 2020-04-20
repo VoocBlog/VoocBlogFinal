@@ -14,7 +14,7 @@ class Post(models.Model):
     title_post = models.CharField(max_length=200)
     pub_date_post = models.DateTimeField(auto_now_add=True)
     body_post = models.TextField()
-    image_post = models.ImageField(null=True)
+    image_post = models.ImageField(null=True, upload_to='images/')
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
 
     def __str__(self):

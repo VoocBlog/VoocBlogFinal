@@ -3,17 +3,19 @@ body {
     background: url(../images/background-city-night.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;
     padding: 0;
     margin: 0;
 }
+
+
 /**/
 
 br {
     margin: 10px 0 10px;
 }
+
 .wrapper {
-    
     background-color: #fff;
     /*float: right;*/
     border-radius: 4px;
@@ -24,15 +26,12 @@ br {
     right: 10px;
     width: 300px;
     height: auto;
-
 }
 
 .form .logo-header {
     /*background: url(../img/logo-vooc.png);*/
     width: 380px;
     margin: 16px auto;
-    
-     
 }
 
 .form .type-input {
@@ -75,17 +74,18 @@ br {
     border-radius: 4px;
     text-transform: uppercase;
     cursor: pointer;
-
 }
 
-.form p, .form span {
+.form p,
+.form span {
     margin: 16px auto;
     font-weight: 200px;
     text-align: center;
     font-size: 13px;
 }
 
-.form p a, .form span a {
+.form p a,
+.form span a {
     text-decoration: none;
     color: #F3AC25;
 }
@@ -94,6 +94,8 @@ br {
     color: black;
     text-decoration: none;
 }
+
+
 /*.form span {
 
 }
@@ -126,6 +128,7 @@ br {
     margin-bottom: 30px;
 }
 
+
 /* .form #signup-form{
     display: none;
 } */
@@ -133,11 +136,12 @@ br {
 .form #signup-form .checkbox {
     display: inline-block;
     background: none;
-
-   
 }
 
 .checkbox {
     margin-left: 22px;
 }
 
+#homebase:hover {
+    cursor: pointer;
+}
