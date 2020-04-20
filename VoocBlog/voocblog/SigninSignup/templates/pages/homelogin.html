@@ -2,7 +2,7 @@
 
 {% block navi_bar_login %}
     {% for user in Query %}
-        <div class="navigation-bar">
+    <div class="navigation-bar">
         <ul class="bg-nav-bar">
             <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
             <li><a href="{% url 'profile' %}">Hello, {{user.last_name}} {{user.first_name}}! </a></li>
@@ -10,5 +10,6 @@
         </ul>
     </div>
     {% endfor %}
+    
 {% endblock  %}
 

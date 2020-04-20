@@ -19,6 +19,7 @@ def index(request):
     #     login_user = request.session['username']
     return render(request, 'pages/index.html', data)
 
+
 def error(request):
     return render(request, 'pages/error.html')
 
@@ -45,7 +46,7 @@ def signup(request):
                 logging.debug('Password not match')
                 return render(request, "pages/error.html")
         else:
-            return HttpResponseRedirect('profile')
+            return HttpResponseRedirect('index')
     return render(request, "LoginRegister/sign-up.html")
 
 
@@ -58,7 +59,7 @@ def login(request):
         if user is not None:
             username = request.POST['username']
             request.session['username'] = username
-            return HttpResponseRedirect("profile")
+            return HttpResponseRedirect("index")
         else:
             print("Invalid password")
             return render(request, 'LoginRegister/sign-up.html')

@@ -1,0 +1,132 @@
+
+{% extends "detail/dtbase.html" %}
+{% load static %}
+{% comment %} {% block navi_bar_login %}
+    {% for user in Query %}
+    <div class="navigation-bar">
+        <ul class="bg-nav-bar">
+            <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+            <li><a href="{% url 'profile' %}">Hello, {{user.last_name}} {{user.first_name}}! </a></li>
+            <li><a href="{% url 'logout' %}">Đăng suất</a></li>             
+        </ul>
+    </div>
+    {% endfor %}
+{% endblock  %} {% endcomment %}
+{% block navi_bar_login %}
+    <div class="navigation-bar">
+        <ul class="bg-nav-bar">
+            <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+            <li><a href="{% url 'signin' %}">Đăng nhập</a></li>
+            <li><a href="{% url 'signup' %}">Đăng ký</a></li>             
+        </ul>
+    </div>
+{% endblock  %}
+
+{% block content %}
+	<div class="blog-left">
+		{% comment %} <div class="task">
+			Blog
+			>
+			Inside Mockplus
+			> Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		</div> {% endcomment %}
+		<div class="blog-header">
+			<h1>{{DetailPost.title_post}}</h1>
+		</div>
+		<div class="date-follow">
+			<div class="time">
+				 <span> 
+				 <img src="{% static 'images/detail_image/icon1.png' %}" id="icon" alt="">
+				 </span> 
+				<span>{{DetailPost.pub_date_post}}</span>
+			</div>
+			<div class="follower">
+				<span>
+				<img src="{% static 'images/detail_image/icon2.png' %}" id="icon">
+				</span>
+				<span>12512 follower</span>
+			</div>
+		</div>
+		<br>
+		<p>--------------------------------------</p>
+		<br>
+		<div id="post-content">
+			<center><img src="{{DetailPost.image_post.url}}" width=400px height=250px/></center>
+			<p>{{DetailPost.body_post}}</p>
+			{{DetailPost.body|safe|linebreaks}}
+			
+		</div>
+	</div>
+
+	<div class="blog-right">
+		<h2>POPULAR POST</h2>
+		<div class="list">
+<!-- 			<a href="#">
+				<div class="pic"><img src="img/img 1.jpg"></div>
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+			</a>
+			<a href="#">
+				<div class="pic"><img src="img/img 2.jpg"></div>
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, repellendus doloremque quidem incidunt deserunt quaerat quisquam qui quod dicta adipisci.</span>
+			</a>
+			<a href="#">
+				<div class="pic"><img src="img/img 3.jpg"></div>
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+			</a>
+			<a href="#">
+				<div class="pic"><img src="img/img 4.jpg"></div>
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+			</a> -->
+			<a href="#">
+			<div class="over-flow">
+				<div class="img-div">
+					<img src="{% static 'images/bg3.jpg'%}">
+				</div>
+				<div class="text-div">
+					<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+				</div>
+			</div>
+			</a>
+			<a href="#">
+			<div class="over-flow">
+				<div class="img-div">
+					<img src="{% static 'images/bg3.jpg'%}">
+				</div>
+				<div class="text-div">
+					<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+				</div>
+			</div>
+			</a>
+			<a href="#">
+			<div class="over-flow">
+				<div class="img-div">
+					<img src="{% static 'images/bg3.jpg'%}">
+				</div>
+				<div class="text-div">
+					<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+				</div>
+			</div>
+			</a>
+			<a href="#">
+			<div class="over-flow">
+				<div class="img-div">
+					<img src="{% static 'images/bg3.jpg'%}">
+				</div>
+				<div class="text-div">
+					<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+				</div>
+			</div>
+			</a>
+			<a href="#">
+			<div class="over-flow">
+				<div class="img-div">
+					<img src="{% static 'images/bg3.jpg'%}">
+				</div>
+				<div class="text-div">
+					<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+				</div>
+			</div>
+			</a>
+		</div>
+	</div>
+{% endblock  %}

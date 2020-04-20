@@ -3,7 +3,7 @@
 <head>
     {% load static %}
 	<meta charset="UTF-8">
-	<title>Home page</title>
+	<title>Detail page</title>
 	<link rel="stylesheet" href="">
 	<link rel="stylesheet" href="{% static 'css/masonry.css' %}">
   	<link rel="stylesheet" href="{% static 'css/back-to-top.css' %}">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-nav-bar.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-	
+	<link rel="stylesheet" href="{% static 'css/detail_css/body.css' %}">
 	<!-- <script src="js/jquery-3.4.1.min.js"></script> -->
 
 </head>
@@ -69,35 +69,9 @@
             </form>
         </div>
     </div>
-	<div id="posting-tab">
-        <span id="close" value='hidetext'>&times;</span>
-        <div id="user-profile">
-            <img src="{% static 'images/8.png/' %}" alt="Profile Picture" srcset="" id="profile-pic">
-            <p class="label" id="profile-name">{{user.last_name}} {{user.first_name}}</p><br><br>
-            <hr width="98%">
-        </div>
-        <div id="title">
-            <p class="label">Tiêu đề <span style="color: red;">*</span></p>
-            <input type="text" name="title" id="title-input">
-        </div>
-        <div id="content">
-            <p class="label">Nội dung <span style="color: red;">*</span></p>
-            <textarea id="content-input" rows="9" cols="100"></textarea>
-        </div>
-        <div id="image">
-            <p class="label">Ảnh bài viết <span style="color: red;">*</span></p>
-            <button id="up-image-btn">
-                <img src="{% static 'images/camera-icon.png'%}" alt="Camera icon" srcset="" width="10%"> 
-                <br>Tải ảnh lên
-            </button>
-        </div>
-        <hr width="98%">
-        <div id="post">
-            <center><input type="button" value="Đăng bài" id="post-btn"></center>
-        </div>
-        <br>
-    </div>
-
+    {% block content %}
+    
+    {% endblock %}
     <a id="button"><i class="fas fa-angle-up"></i></a>
 
     <div id="list-cate" class="container">
@@ -106,9 +80,7 @@
             <div class="masonry">
                 {% for post in Posts %}
                     <div class="brick">
-                        
                         <img src="{{post.image_post.url}}" alt="{{post.title_post}}" title="{{post.title_post}}"/>
-                        <a href="/detail/{{post.id}}">{{post.title_post}}</a>
                         {% comment %} <h5>{{post.pub_date_post}}</h5> {% endcomment %}
                         {% comment %} 
                         Or implement like this to define how the date-time displays
