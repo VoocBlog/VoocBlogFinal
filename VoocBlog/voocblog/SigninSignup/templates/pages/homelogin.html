@@ -1,11 +1,15 @@
 {% extends "pages/homebase.html" %}
 
+{% block title %}
+    Home login
+{% endblock title %}
+
 {% block navi_bar_login %}
     {% for user in Query %}
     <div class="navigation-bar">
         <ul class="bg-nav-bar">
             <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
-            <li><a href="{% url 'profile' %}">Hello, {{user.last_name}} {{user.first_name}}! </a></li>
+            <li><a href="{% url 'loginprofile' %}">Hello, {{user.last_name}} {{user.first_name}}! </a></li>
             <li><a href="{% url 'logout' %}">Đăng suất</a></li>             
         </ul>
     </div>

@@ -3,7 +3,11 @@
 <head>
     {% load static %}
 	<meta charset="UTF-8">
-	<title>Home page</title>
+	<title>
+    {% block title %}
+    
+    {% endblock title %}
+    </title>
 	<link rel="stylesheet" href="">
 	<link rel="stylesheet" href="{% static 'css/masonry.css' %}">
   	<link rel="stylesheet" href="{% static 'css/back-to-top.css' %}">
