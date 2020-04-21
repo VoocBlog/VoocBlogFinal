@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 from . import ValidateRegister
 from . import session_user
 from django.db import models
-from django.http import HttpResponseRedirect
 from roles.models import Post
 
 import logging
@@ -61,8 +62,8 @@ def login(request):
             request.session['username'] = username
             return HttpResponseRedirect("index")
         else:
-            print("Invalid password")
-            return render(request, 'LoginRegister/sign-up.html')
+            return HttpResponse(content='Wrong password')
+            #return render(request, 'LoginRegister/sign-up.html')
         # requestUser = User.objects.filter(username = inputUsername)
         # userSelected = User.objects.get(username = 'phat@gmail.com')
         # passwordUser = userSelected.password
