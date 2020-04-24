@@ -54,9 +54,9 @@
 			<center><img src="{{DetailPost.image_post.url}}" width=400px height=250px/></center>
 			<p>{{DetailPost.body_post}}</p>
 			{{DetailPost.body|safe|linebreaks}}
-			
 		</div>
 	</div>
+	
 
 	<div class="blog-right">
 		<h2>POPULAR POST</h2>
@@ -130,3 +130,28 @@
 		</div>
 	</div>
 {% endblock  %}
+
+{% block post %}
+	<div class="masonry">
+		{% for post in Posts %}
+			<div class="brick">
+				<img src="{{DetailPost.image_post.url}}" alt="{{DetailPost.title_post}}" title="{{post.title_post}}"/>
+				{% comment %} <h5>{{post.pub_date_post}}</h5> {% endcomment %}
+				{% comment %} 
+				Or implement like this to define how the date-time displays
+				<h4>{{post.pub_date|date:"d-M-Y"}}</h4> 
+				{% endcomment %}
+				<p>{{post.body_post}}</p>
+			</div>
+		{% endfor %}
+		{% if user.username %}
+			<form action="{% url 'comment' DetailPost.id %}" method="POST">
+				{% csrf_token %}
+				<p><label>Bình luận:</label></p>
+				{{form.body}}
+				<br/>
+				<input type="submit" value="Bình luận"/>
+			</form>
+		{% endif %}
+	</div><!-- .masonry -->
+{% endblock post %}
