@@ -4,6 +4,9 @@ body {
 }
 .top-page {
 	top: 0;
+	width: 100%;
+    margin-right: auto;
+    margin-left: auto
 }
 .bg {
 	background-color: #aeaeae;
@@ -31,13 +34,22 @@ ul.bg-nav-bar {
   	overflow: hidden;
   	background-color: #333;
 }
+
+ul.bg-nav-bar li.nav-home {
+  	float: left;
+  	text-align: left;
+}
+
+ul.bg-nav-bar li.nav-home a:hover {
+  	color: #4B8BF4;
+}
 		
-li {
+ul.bg-nav-bar li {
   	float: right;
   	text-align: right;
 }
 
-li a {
+ul.bg-nav-bar li a {
   	display: block;
   	color: white;
   	text-align: center;
@@ -49,6 +61,9 @@ li a {
 .mota {
 	/*overflow: auto;*/
 	height: auto;
+	width: 100%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .mota .deg-10 {
