@@ -7,7 +7,7 @@ body{
 .search-container{
   width: 490px;
   display: block;
-  margin: -20px 200px;
+  margin: -10px 150px;
 }
 
 input#search-bar{
@@ -27,13 +27,14 @@ input#search-bar{
   width: 75px;
   height: 75px;
   top: -62px;
-  left: 95%;
+  left: 86%;
 }
 
 
 #posting-tab {
     display: none;
-    width: 80%;
+    width: 60%;
+    height: 80%;
     margin: 30px auto;
 }
 

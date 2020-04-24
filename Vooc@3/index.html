@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/masonry.css">
   	<link rel="stylesheet" href="css/back-to-top.css">
   	<link rel="stylesheet" href="css/fontawesome.min.js">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	
+    <link rel="stylesheet" href="css/footer.css">
 	<!-- <script src="js/jquery-3.4.1.min.js"></script> -->
 
 </head>
@@ -37,15 +38,16 @@
         </div>
     </div>
 
-    <div class="top-page">
+    <div class="top-page ">
         <div class="navigation-bar">
                 <ul class="bg-nav-bar">
+                    <li class="nav-home"><a href="">Home</a></li>
                     <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
                     <li><a href="">Đăng nhập</a></li>
                     <li><a href="">Đăng ký</a></li>             
                 </ul>
         </div>
-        <div class="mota">
+        <div class="mota container">
             <br>
             <div>
                 <img class="deg-10" src="images/bg1.jpg" width="250" alt="">
@@ -56,16 +58,21 @@
             </div>
             
         </div>
-        <div>
-            <form class="search-container">
-                <input type="text" id="search-bar" placeholder="Bạn muốn tìm gì?">
+        <div class="container">
+            <div class="search-container ">
+                <div>
+                    <input type="text" id="search-bar" placeholder="Bạn muốn tìm gì?">
+                    <img class="search-icon" src="images/search-icon.png">
+                </div>
+                <!-- <input type="text" id="search-bar" placeholder="Bạn muốn tìm gì?">
                 <a href="#">
 
                     <img class="search-icon" src="images/search-icon.png">
-                </a>
-            </form>
+                </a> -->
+            </div>
         </div>
     </div>
+
 	<div id="posting-tab">
         <span id="close" value='hidetext'>&times;</span>
         <div id="user-profile">
@@ -280,22 +287,77 @@
             </div><!-- .masonry -->
         </div>
     </div>
+
+    <footer class="footer">
+      <h3>Stay connected with us</h3>
+      <div class="container footer-bot">
+        <div class="row"> 
+          <!-- social -->
+          
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top padding-soc" >
+            <ul class="social">
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            </ul>
+            <p class="made-by">Made by <i class="fa fa-heart" aria-hidden="true"></i> <a href="#" target="_blank">Intern Team</a>
+            <p> 
+          </div>
+          
+          <!-- social --> 
+          
+          <!-- VoocBlog -->
+          
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"> 
+            <!-- <img src="images/footer-logo.png" alt="Vooc" title="VoocBlog"/> -->
+            <p><span>V</span>oocBlog</p>
+            <p class="copy-right">&copy; VoocBlog 2020 intern.</p>
+          </div>
+          
+          <!-- VoocBlog --> 
+          
+          <!-- email -->
+          
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top padding-cont" >
+            <p><a href="mailto:contact@internteam.com">contact@internteam.com</a></p>
+            <p>(+84) 1 2 3 4 5 6 7 8 9</p>
+          </div>
+          
+          <!-- email --> 
+
+          <!-- notification -->
+          
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top">
+            <p>Nhận thông báo qua Email:</p>
+            <p class="sub-email">
+            <!-- <label for="" style="display: none;">Email Address</label> -->
+            <input type="email" placeholder="Email Address" >
+            </p>
+          </div>
+          
+          <!-- notification --> 
+        </div>
+      </div>
+    </footer>
 	
     <script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/back-to-top.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/slide.js"></script>
+    <!-- <script type="text/javascript" src="js/slide.js"></script> -->
     <script>
         $(document).ready(function(){
             $("a[value='showtext']").click(function(){
-                $("#posting-tab").show("fast");
+                $("#posting-tab").show("slow");
                 // $("#text-area").css("display","none");
-                $("#list-cate").hide("fast");
+                $("#list-cate").hide("slow");
             })
             $("span[value='hidetext']").click(function(){
-                $("#posting-tab").hide("fast");
-                $('#list-cate').show("fast");
+                $("#posting-tab").hide("slow");
+                $('#list-cate').show("slow");
             })
         })
     </script>
