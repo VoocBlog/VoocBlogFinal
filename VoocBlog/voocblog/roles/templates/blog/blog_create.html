@@ -1,18 +1,36 @@
-{% block title %} Post Blog {% endblock title %}
+{% load static %}
+<html>
 
+<head>
+    <title>Django Vooc blog</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+</head>
 
+<body>
+    <div class="page-header">
+        <a href="/" class="top-menu"></a>
+        <h1>
+            <a id="homebase" href="/">
+                <img src="{% static 'images/logo-vooc.png' %}" class="Postblog-header" width="" /></a>
+        </h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                <form class="form-horizontal form_middle" enctype='multipart/form-data' method="POST" action="{% url 'AddBlog' %}">
+                    {% csrf_token %} 
+                    {{ form.as_p}}
+                    <button type="submit" class="save btn btn-default">Đăng Bài</button>
 
+                </form>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
 
-
-{% block content %}
-<form class="form-horizontal form_middle" enctype='multipart/form-data' method="POST"> 
-    {% csrf_token %}
-    {{ form.as_p}}
-    <input type='submit' value='Save' />
-
-</form>
-{% endblock %}
-
-
-
-
+</html>

@@ -13,7 +13,12 @@ class PostForm(forms.ModelForm):
             'image_post',
             'category'
         ]
-
+        widgets = {
+            'title_post': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Tiêu Đề Bài Viết...'}),
+            'body_post': forms.Textarea(attrs={'class': 'new-class-name two', 'placeholder':'Nội Dung Bài Viết...',"rows":19, 'cols':149, 'style': 'padding: 10px; border-radius: 5px'}),
+            'image_post': forms.FileInput(attrs={'class': 'form-control', 'placeholder':'Tải Hình Ảnh Lên'}),
+            'category': forms.Select(attrs={'class': 'form-control', 'placeholder':'Chọn Thể Loại', 'style': 'margin-bottom: 20px'}),
+        }
 # class abc(forms .Form):
 #     title_post = forms.CharField(label='Account', max_length=30)
 #     body_post = forms.CharField(label='Body post', max_length=30)
@@ -28,6 +33,3 @@ class PostForm(forms.ModelForm):
 #    body_post = forms.CharField()
 #    image_post = forms.ImageField()
 #    category = forms.CharField()
-
-
-

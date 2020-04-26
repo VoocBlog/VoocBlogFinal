@@ -3,7 +3,11 @@
 <head>
     {% load static %}
 	<meta charset="UTF-8">
-	<title>Home page</title>
+	<title>
+    {% block title %}
+    
+    {% endblock title %}
+    </title>
 	<link rel="stylesheet" href="">
 	<link rel="stylesheet" href="{% static 'css/masonry.css' %}">
   	<link rel="stylesheet" href="{% static 'css/back-to-top.css' %}">
@@ -14,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-nav-bar.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-	
+	<link rel="shortcut icon" href="{% static 'images/logo-vooc.png' %}" type="image/x-icon">
 	<!-- <script src="js/jquery-3.4.1.min.js"></script> -->
 
 </head>
@@ -37,7 +41,7 @@
             </ul>
         </div>
     </div>
-
+    
     <div class="top-page">
         {% block navi_bar_login %}
         
@@ -56,7 +60,7 @@
             </div>
             <div class="blog-desc">
                 <h2>Chủ blog confession</h2>
-                <p>Mô tả ngắn gọn về blog của mình nói về gì. Mô tả ngắn gọn về blog của mình nói về gì. Mô tả ngắn gọn về blog của mình nói về gì. Mô tả ngắn gọn về blog của mình nói về gì. Mô tả ngắn gọn về blog của mình nói về gì. Mô tả ngắn gọn về blog của mình nói về gì. Mô tả ngắn gọn về blog của mình nói về gì. </p>
+                <p>Mô tả ngắn gọn về blog của mình nói về gì. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage. </p>
             </div>
             
         </div>
@@ -64,14 +68,38 @@
             <form class="search-container">
                 <input type="text" id="search-bar" placeholder="Bạn muốn tìm gì?">
                 <a href="#">
-
                     <img class="search-icon" src="{% static 'images/search-icon.png'%}">
                 </a>
             </form>
         </div>
     </div>
 	<div id="posting-tab">
-        
+        <span id="close" value='hidetext'>&times;</span>
+        <div id="user-profile">
+            <img src="{% static 'images/8.png/' %}" alt="Profile Picture" srcset="" id="profile-pic">
+            <p class="label" id="profile-name">{{user.last_name}} {{user.first_name}}</p><br><br>
+            <hr width="98%">
+        </div>
+        <div id="title">
+            <p class="label">Tiêu đề <span style="color: red;">*</span></p>
+            <input type="text" name="title" id="title-input">
+        </div>
+        <div id="content">
+            <p class="label">Nội dung <span style="color: red;">*</span></p>
+            <textarea id="content-input" rows="9" cols="100"></textarea>
+        </div>
+        <div id="image">
+            <p class="label">Ảnh bài viết <span style="color: red;">*</span></p>
+            <button id="up-image-btn">
+                <img src="{% static 'images/camera-icon.png'%}" alt="Camera icon" srcset="" width="10%"> 
+                <br>Tải ảnh lên
+            </button>
+        </div>
+        <hr width="98%">
+        <div id="post">
+            <center><input type="button" value="Đăng bài" id="post-btn"></center>
+        </div>
+        <br>
     </div>
 
     <a id="button"><i class="fas fa-angle-up"></i></a>
@@ -80,22 +108,11 @@
         <div class="wrapper">
         <br><br>
             <div class="masonry">
-                <div class="brick">
-                    <img src="{% static 'images/camera-icon.png'%}" alt="Cherry abcplant" title="Cherry xyzplant">
-                    <p style="margin: 10px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quia consequuntur sunt iste labore!</p>
-                </div>
-                <div class="brick">
-                    <img src="{% static 'images/macbook.jpg'%}" alt="Oranges and Pomegranates" title="Oranges and Pomegranates">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint aliquam ut, rerum excepturi commodi, accusantium.</p>
-                </div>
-                <div class="brick">
-                    <img src="{% static 'images/strawberry.jpg'%}" alt="Strawberry" title="Strawberry">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione exercitationem, soluta ipsa dolores a corrupti voluptatibus.</p>
-                </div>
-
                 {% for post in Posts %}
                     <div class="brick">
+                        
                         <img src="{{post.image_post.url}}" alt="{{post.title_post}}" title="{{post.title_post}}"/>
+                        <a href="/detail/{{post.id}}">{{post.title_post}}</a>
                         {% comment %} <h5>{{post.pub_date_post}}</h5> {% endcomment %}
                         {% comment %} 
                         Or implement like this to define how the date-time displays
@@ -104,84 +121,7 @@
                         <p>{{post.body_post}}</p>
                     </div>
                 {% endfor %}
-                <div class="brick">
-                    <img src="images/lemons.jpg" alt="Lemons" title="Lemons">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates ipsum ad sapiente cupiditate minima autem mollitia nemo molestiae veniam temporibus!</p>
-                </div>
-                <div class="brick">
-                    <img src="images/cherries.jpg" alt="Cherries" title="Cherries">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse consequuntur, laudantium enim. Nesciunt natus a unde minus odit laboriosam adipisci architecto similique magni quae? Molestiae nisi sequi pariatur totam, at, soluta veniam voluptas!</p>
-                </div>
-                <div class="brick">
-                    <img src="images/lightroom.png" alt="Grapes" title="Grapes">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, tempore!</p>
-                </div>
-                <div class="brick">
-                    <img src="images/cherry-plant.jpg" alt="Cherry plant" title="Cherry plant">
-                    <p style="margin: 10px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quia consequuntur sunt iste labore!</p>
-                </div>
-                <div class="brick">
-                    <img src="images/oranges-pomegranates.jpg" alt="Oranges and Pomegranates" title="Oranges and Pomegranates">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, sequi nobis, deserunt aliquam, minima unde voluptatibus, velit suscipit molestiae sint enim pariatur!</p>
-                </div>
-                <div class="brick">
-                    <img src="images/strawberry.jpg" alt="Strawberry" title="Strawberry">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At magni aliquid tempora neque explicabo!
-                </div>
-                <div class="brick">
-                    <img src="images/blueberries.jpg" alt="Blueberries" title="Blueberries">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/pears.jpg" alt="Pears" title="Pears">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/photoshop.jpg" alt="Easter-eggs" title="Easter-eggs">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/lemons.jpg" alt="Lemons" title="Lemons">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/cherries.jpg" alt="Cherries" title="Cherries">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/grapes.jpg" alt="Grapes" title="Grapes">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/cherry-plant.jpg" alt="Cherry plant" title="Cherry plant">
-                    <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quia consequuntur sunt iste labore!</p>
-                </div>
-                <div class="brick">
-                    <img src="images/oranges-pomegranates.jpg" alt="Oranges and Pomegranates" title="Oranges and Pomegranates">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/strawberry.jpg" alt="Strawberry" title="Strawberry">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/pears.jpg" alt="Pears" title="Pears">
-                </div>
-                <div class="brick">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quia doloremque laborum culpa tempora sequi natus nemo, inventore dignissimos eveniet?</p>
-                </div>
-                <div class="brick">
-                    <img src="images/lemons.jpg" alt="Lemons" title="Lemons">
-                </div>
-                <div class="brick">
-                    <img src="images/cherries.jpg" alt="Cherries" title="Cherries">
-                </div>
-                <div class="brick">
-                    <img src="images/grapes.jpg" alt="Grapes" title="Grapes">
-                </div>
+                
             </div><!-- .masonry -->
         </div>
     </div>
@@ -194,12 +134,12 @@
     <script>
         $(document).ready(function(){
             $("a[value='showtext']").click(function(){
-                $("#posting-tab").show("fast");
+                $("/blog").show("fast");
                 // $("#text-area").css("display","none");
                 $("#list-cate").hide("fast");
             })
             $("span[value='hidetext']").click(function(){
-                $("#posting-tab").hide("fast");
+                $("/blog").hide("fast");
                 $('#list-cate').show("fast");
             })
         })

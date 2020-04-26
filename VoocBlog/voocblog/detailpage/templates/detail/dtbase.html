@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+	<meta charset="UTF-8">
+	<title>Detail page</title>
+	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="{% static 'css/masonry.css' %}">
+  	<link rel="stylesheet" href="{% static 'css/back-to-top.css' %}">
+  	<link rel="stylesheet" href="{% static 'css/fontawesome.min.js' %}">
+  	<link rel="stylesheet" href="{% static 'css/solid.js' %}">
+    <link rel="stylesheet" href="{% static 'css/posting-page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slide.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-nav-bar.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="{% static 'css/detail_css/body.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/logo-vooc.png' %}" type="image/x-icon">
+	<!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+
+</head>
+<body>
+	<div class="block-slide">
+        <div class="any-slide">
+            <div class="slide active"><img class="width100" src="{% static 'images/1.png'%}" alt=""></div>
+            <div class="slide"><img class="width100" src="{% static 'images/2.png'%}" alt=""></div>
+            <div class="slide"><img class="width100" src="{% static 'images/3.png'%}" alt=""></div>
+            <div class="slide"><img class="width100" src="{% static 'images/3.png'%}" alt=""></div>
+        </div>
+        <div class="button-slide">
+            <span id="btn-prev"><i class="fas fa-chevron-left"></i></span>
+            <span id="btn-next"><i class="fas fa-chevron-right"></i></span>
+            <ul>
+                <li class="active-nut"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="top-page">
+        {% block navi_bar_login %}
+        
+        {% endblock %}
+        {% comment %} <div class="navigation-bar">
+            <ul class="bg-nav-bar">
+                <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+                <li><a href="{% url 'profile' %}">Hello, {{username}}! </a></li>
+                <li><a href="{% url 'logout' %}">Đăng suất</a></li>             
+            </ul>
+        </div> {% endcomment %}
+        <div class="mota">
+            <br>
+            <div>
+                <img class="deg-10" src="{% static 'images/bg3.jpg'%}" width="250" alt="">
+            </div>
+            <div class="blog-desc">
+                <h2>Chủ blog confession</h2>
+                <p>Mô tả ngắn gọn về blog của mình nói về gì. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage. </p>
+            </div>
+            
+        </div>
+        <div>
+            <form class="search-container">
+                <input type="text" id="search-bar" placeholder="Bạn muốn tìm gì?">
+                <a href="#">
+                    <img class="search-icon" src="{% static 'images/search-icon.png'%}">
+                </a>
+            </form>
+        </div>
+    </div>
+    {% block content %}
+    
+    {% endblock %}
+    <a id="button"><i class="fas fa-angle-up"></i></a>
+
+    <div id="list-cate" class="container">
+        <div class="wrapper">
+        <br><br>
+            <div class="masonry">
+                {% for post in Posts %}
+                    <div class="brick">
+                        <img src="{{post.image_post.url}}" alt="{{post.title_post}}" title="{{post.title_post}}"/>
+                        {% comment %} <h5>{{post.pub_date_post}}</h5> {% endcomment %}
+                        {% comment %} 
+                        Or implement like this to define how the date-time displays
+                        <h4>{{post.pub_date|date:"d-M-Y"}}</h4> 
+                        {% endcomment %}
+                        <p>{{post.body_post}}</p>
+                    </div>
+                {% endfor %}
+                
+            </div><!-- .masonry -->
+        </div>
+    </div>
+	
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'js/back-to-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/slide.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $("a[value='showtext']").click(function(){
+                $("/blog").show("fast");
+                // $("#text-area").css("display","none");
+                $("#list-cate").hide("fast");
+            })
+            $("span[value='hidetext']").click(function(){
+                $("/blog").hide("fast");
+                $('#list-cate').show("fast");
+            })
+        })
+    </script>
+
+</body>
+</html>

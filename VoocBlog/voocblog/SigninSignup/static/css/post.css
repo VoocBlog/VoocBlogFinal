@@ -1,0 +1,9 @@
+body {
+    font-family: sans-serif;
+    background: url(../images/background-post.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}

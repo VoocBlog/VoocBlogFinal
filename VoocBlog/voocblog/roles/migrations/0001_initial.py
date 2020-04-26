@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('title_post', models.CharField(max_length=200)),
                 ('pub_date_post', models.DateTimeField(auto_now_add=True)),
                 ('body_post', models.TextField()),
-                ('image_post', models.ImageField(null=True, upload_to='SigninSignup/static/images')),
+                ('image_post', models.ImageField(null=True, upload_to='')),
                 ('category', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='roles.Category')),
             ],
         ),
