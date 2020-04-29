@@ -7,7 +7,7 @@
 {% block navi_bar_login %}
     <div class="navigation-bar">
         <ul class="bg-nav-bar">
-            <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+            <li><a href="{% url 'blog' %}" value="showtext">Đăng bài</a></li>
             <li><a href="{% url 'signin' %}">Đăng nhập</a></li>
             <li><a href="{% url 'signup' %}">Đăng ký</a></li>             
         </ul>
