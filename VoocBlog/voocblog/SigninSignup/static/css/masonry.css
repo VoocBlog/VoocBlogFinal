@@ -49,6 +49,12 @@ a {
 
 .masonry .brick p {
   margin: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  -webkit-line-clamp: 6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 /* Masonry image effects */

@@ -112,8 +112,9 @@
             <div class="masonry">
                 {% for post in Posts %}
                     <div class="brick">
-                        
+                        <a href="{% url 'detailindex' post.id %}">
                         <img src="{{post.image_post.url}}" alt="{{post.title_post}}" title="{{post.title_post}}"/>
+                        </a>
                         <a href="{% url 'detailindex' post.id %}">{{post.title_post}}</a>
                         {% comment %} <h5>{{post.pub_date_post}}</h5> {% endcomment %}
                         {% comment %} 
