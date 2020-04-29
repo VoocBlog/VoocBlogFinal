@@ -20,6 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('SigninSignup.urls')),
+    path('', include('roles.urls')),
     path('detail/', include('detailpage.urls')),
     path('admin/', admin.site.urls),
 ]
