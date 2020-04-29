@@ -1,0 +1,11 @@
+{% block content %}
+    {% if user is not None %}
+		<form action="{% url 'comment' DetailPost.id %}" method="POST">
+			{% csrf_token %}
+			<p><label>Bình luận:</label></p>
+			{{form.body}}
+			<br/>
+			<input type="submit" value="Bình luận"/>
+		</form>
+	{% endif %}
+{% endblock content %}

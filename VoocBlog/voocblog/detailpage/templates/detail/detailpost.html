@@ -13,13 +13,23 @@
     {% endfor %}
 {% endblock  %} {% endcomment %}
 {% block navi_bar_login %}
-    <div class="navigation-bar">
-        <ul class="bg-nav-bar">
-            <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
-            <li><a href="{% url 'signin' %}">Đăng nhập</a></li>
-            <li><a href="{% url 'signup' %}">Đăng ký</a></li>             
-        </ul>
-    </div>
+    {% if user.username %}
+        <div class="navigation-bar">
+            <ul class="bg-nav-bar">
+                <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+                <li><a href="{% url 'signin' %}">Đăng nhập</a></li>
+                <li><a href="{% url 'signup' %}">Đăng ký</a></li>             
+            </ul>
+        </div>
+    {% else %}
+        <div class="navigation-bar">
+            <ul class="bg-nav-bar">
+                <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+                <li><a href="{% url 'loginprofile' %}">Hello, {{user.last_name}} {{user.first_name}}! </a></li>
+                <li><a href="{% url 'logout' %}">Đăng suất</a></li>             
+            </ul>
+        </div>
+    {% endif %}
 {% endblock  %}
 
 {% block content %}
@@ -61,22 +71,6 @@
 	<div class="blog-right">
 		<h2>POPULAR POST</h2>
 		<div class="list">
-<!-- 			<a href="#">
-				<div class="pic"><img src="img/img 1.jpg"></div>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-			</a>
-			<a href="#">
-				<div class="pic"><img src="img/img 2.jpg"></div>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, repellendus doloremque quidem incidunt deserunt quaerat quisquam qui quod dicta adipisci.</span>
-			</a>
-			<a href="#">
-				<div class="pic"><img src="img/img 3.jpg"></div>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-			</a>
-			<a href="#">
-				<div class="pic"><img src="img/img 4.jpg"></div>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-			</a> -->
 			<a href="#">
 			<div class="over-flow">
 				<div class="img-div">
@@ -133,7 +127,7 @@
 
 {% block post %}
 	<div class="masonry">
-		{% for post in Posts %}
+<!--		{% for post in Posts %}
 			<div class="brick">
 				<img src="{{DetailPost.image_post.url}}" alt="{{DetailPost.title_post}}" title="{{post.title_post}}"/>
 				{% comment %} <h5>{{post.pub_date_post}}</h5> {% endcomment %}
@@ -141,17 +135,26 @@
 				Or implement like this to define how the date-time displays
 				<h4>{{post.pub_date|date:"d-M-Y"}}</h4> 
 				{% endcomment %}
-				<p>{{post.body_post}}</p>
+				<p>{{DetailPost.body_post}}</p>
 			</div>
-		{% endfor %}
-		{% if user.username %}
-			<form action="{% url 'comment' DetailPost.id %}" method="POST">
-				{% csrf_token %}
-				<p><label>Bình luận:</label></p>
-				{{form.body}}
-				<br/>
-				<input type="submit" value="Bình luận"/>
-			</form>
-		{% endif %}
+		{% endfor %} -->
 	</div><!-- .masonry -->
 {% endblock post %}
+
+{% block comment %}
+	{% for comment in DetailPost.comments.all %}
+		<h4><strong>{{comment.author}}</strong></h4>
+		<h6><p>{{comment.date_cmt}}</p></h6>
+		<p>{{comment.content_cmt|linebreaks}}
+	{% endfor %}
+
+	{% if user.username %}
+		<form action="{% url 'comment' DetailPost.id %}" method="POST">
+			{% csrf_token %}
+			<p><label>Bình luận:</label></p>
+			{{form.body}}
+			<br/>
+			<input type="submit" value="Bình luận"/>
+		</form>
+	{% endif %}
+{% endblock comment %}

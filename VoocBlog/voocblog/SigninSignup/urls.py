@@ -10,7 +10,8 @@ urlpatterns = [
     path('homepage/', views.logout, name='logout'),
     path('login/index', views.profile, name='profile'),
     path('login/profile', views.loginprofile, name='loginprofile'),
-    path('register/error/', views.error, name='error')
+    path('register/error/', views.error, name='error'),
+    path('<int:id>/', views.PostDetail, name='detailindex'),
     #path('login/', auth_views.LoginView.as_view(template_name = "LoginRegister/sign-in.html"), name='signup'),
 ]
 

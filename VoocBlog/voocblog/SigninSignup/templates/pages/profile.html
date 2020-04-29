@@ -1,4 +1,4 @@
-{% extends "./base.html" %}
+{% extends "detail/test.html" %}
 {% block content %}
     <h1>Profile</h1>
     {% for user in Query %}
@@ -6,6 +6,8 @@
         <h3><span style="color: rgb(15, 207, 15);">{{user.username}}</h3>
         <h5>First Name: {{ user.first_name}}</h5>
         <h5>Last Name: {{user.last_name}}</h5>
+        <p><a href="{% url 'profile' %}">Back to home page</a></p>
         <p><a href="{% url 'logout' %}">Logout</a></p>
+        
     {% endfor %}
 {% endblock content %}

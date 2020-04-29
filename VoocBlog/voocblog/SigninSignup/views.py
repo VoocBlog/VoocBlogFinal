@@ -101,8 +101,9 @@ def profile(request):
     #return render(request,'pages/profile.html', {'Query'})
     if request.session.has_key('username'):
         loginUser = request.session['username']
+        data = Post.objects.all().order_by("-pub_date_post")
         query = User.objects.filter(username = loginUser)
-        return render(request, 'pages/homelogin.html', {'Query':query})
+        return render(request, 'pages/homelogin.html', {'Query':query, 'Posts' : data})
     else:
         return render(request, 'LoginRegister/sign-in.html')
 
@@ -122,4 +123,6 @@ def logout(request):
         pass
     return render(request, 'pages/index.html', data)
 
-    
+def PostDetail(request, id):
+    post = Post.objects.get(id=id)
+    return render(request, 'detail/detailpost.html', {'DetailPost' : post})

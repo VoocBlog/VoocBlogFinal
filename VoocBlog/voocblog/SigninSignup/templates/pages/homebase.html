@@ -112,7 +112,7 @@
                     <div class="brick">
                         
                         <img src="{{post.image_post.url}}" alt="{{post.title_post}}" title="{{post.title_post}}"/>
-                        <a href="/detail/{{post.id}}">{{post.title_post}}</a>
+                        <a href="{% url 'detailindex' post.id %}">{{post.title_post}}</a>
                         {% comment %} <h5>{{post.pub_date_post}}</h5> {% endcomment %}
                         {% comment %} 
                         Or implement like this to define how the date-time displays
