@@ -25,7 +25,7 @@
 						{% comment %} <input type="hidden" name="next" value="/" />
 						<input type="submit" class="btn-login" value="Login"/>  {% endcomment %}
 					</form>
-	            	<p><a href="" class="forget-pass">Quên mật khẩu?</a></p>
+	            	<p><a href="{% url 'forgetpass' %}" class="forget-pass">Quên mật khẩu?</a></p>
 	            	<br>
 	            	<p>Chưa có tài khoản? <a href="{% url 'signup' %}" >Đăng ký ngay</a></p>
 				</div>

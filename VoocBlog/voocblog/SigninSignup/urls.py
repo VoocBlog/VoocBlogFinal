@@ -12,6 +12,7 @@ urlpatterns = [
     path('login/profile', views.loginprofile, name='loginprofile'),
     path('register/error/', views.error, name='error'),
     path('<int:id>/', views.PostDetail, name='detailindex'),
+    path('forget-password/', views.ForgetPassword, name='forgetpass')
     #path('login/', auth_views.LoginView.as_view(template_name = "LoginRegister/sign-in.html"), name='signup'),
 ]
 

@@ -129,3 +129,6 @@ def logout(request):
 def PostDetail(request, id):
     post = Post.objects.get(id=id)
     return render(request, 'detail/detailpost.html', {'DetailPost' : post})
+
+def ForgetPassword(request):
+    return render(request, 'pages/password-recovering.html')
