@@ -27,11 +27,11 @@ from django.http import HttpResponse
     #         return HttpResponseRedirect('/')
     # return render( request, "blog/blog_create.html", {'form' : form} )
 
-# def IsInSession(request):
-#     if request.session.has_key('username'):
-#         return HttpResponseRedirect('posting-post')
-#     else:
-#         return HttpResponse('Must login')
+def IsInSession(request):
+    if request.session.has_key('username'):
+        return HttpResponseRedirect("posting-post")
+    else:
+        return HttpResponse('Must login')
         
 def post_create_view(request):
     context = {
