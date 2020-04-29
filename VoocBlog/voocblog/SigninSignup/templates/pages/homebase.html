@@ -9,11 +9,13 @@
     {% endblock title %}
     </title>
 	<link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'css/masonry.css' %}">
   	<link rel="stylesheet" href="{% static 'css/back-to-top.css' %}">
   	<link rel="stylesheet" href="{% static 'css/fontawesome.min.js' %}">
   	<link rel="stylesheet" href="{% static 'css/solid.js' %}">
     <link rel="stylesheet" href="{% static 'css/posting-page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/slide.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-nav-bar.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -125,6 +127,42 @@
             </div><!-- .masonry -->
         </div>
     </div>
+
+    <footer class="footer">
+      <h3>Stay connected with us</h3>
+      <div class="container footer-bot">
+        <div class="row"> 
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top padding-soc" >
+            <ul class="social">
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            </ul>
+            <p class="made-by">Made by <i class="fa fa-heart" aria-hidden="true"></i> <a href="#" target="_blank">Intern Team</a>
+            <p> 
+          </div>          
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"> 
+            <!-- <img src="images/footer-logo.png" alt="Vooc" title="VoocBlog"/> -->
+            <p><span>V</span>oocBlog</p>
+            <p class="copy-right">&copy; VoocBlog 2020 intern.</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top padding-cont" >
+            <p><a href="mailto:contact@internteam.com">contact@internteam.com</a></p>
+            <p>(+84) 1 2 3 4 5 6 7 8 9</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top">
+            <p>Nhận thông báo qua Email:</p>
+            <p class="sub-email">
+            <!-- <label for="" style="display: none;">Email Address</label> -->
+            <input type="email" placeholder="Email Address" >
+            </p>
+          </div> 
+        </div>
+      </div>
+    </footer>
 	
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 	<script src="{% static 'js/back-to-top.js' %}"></script>

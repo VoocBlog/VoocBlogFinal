@@ -17,8 +17,9 @@ from django import forms
 def index(request):
     if request.session.has_key('username'):
         loginUser = request.session['username']
+        data = Post.objects.all().order_by("-pub_date_post")
         query = User.objects.filter(username = loginUser)
-        return render(request, 'pages/homelogin.html', {'Query':query})
+        return render(request, 'pages/homelogin.html', {'Query':query, 'Posts':data})
     else:
         data = {'Posts':Post.objects.all().order_by("-pub_date_post")}
         # if (request.session.has_key('username')):
@@ -38,8 +39,9 @@ def error(request):
 def signup(request):
     if request.session.has_key('username'):
         loginUser = request.session['username']
+        data = Post.objects.all().order_by("-pub_date_post")
         query = User.objects.filter(username = loginUser)
-        return render(request, 'pages/homelogin.html', {'Query':query})
+        return render(request, 'pages/homelogin.html', {'Query':query, 'Posts':data})
     else:
         if request.method == 'POST':
             enterFName = request.POST['firstName']
@@ -64,8 +66,9 @@ def signup(request):
 def login(request):
     if request.session.has_key('username'):
         loginUser = request.session['username']
+        data = Post.objects.all().order_by("-pub_date_post")
         query = User.objects.filter(username = loginUser)
-        return render(request, 'pages/homelogin.html', {'Query':query})
+        return render(request, 'pages/homelogin.html', {'Query':query, 'Posts':data})
     else:
         if request.method == 'POST':
             inputUsername = request.POST['username']

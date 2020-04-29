@@ -1,0 +1,17 @@
+.footer{ 
+    background-color: #222222;width:100%; bottom:0; left:0; right:0; padding-top:30px; padding-bottom:70px; text-align:center; color:#999999; font-size:16px; letter-spacing:1px; font-weight:400}
+
+.footer h3{ text-align:center; color:#fff;font-family: 'Oranienbaum', serif; text-transform:uppercase; letter-spacing:2px; font-size:21px; position:relative}
+
+.footer h3:after{ content:""; margin:0 auto; display:block; position:absolute; bottom:-20px; left:0; right:0; width:63px; height:3px; background-color:#fff}
+.footer-bot{ padding-top:58px}
+.social{ text-align:center; padding:0; margin:0; list-style:none}
+
+.social li{ display:inline-block; margin:0 5px; font-size:12px}
+.social li a:hover { color: red; font-size: 32px;}
+
+.footer span { border: 1px solid #fff; text-align: center;font-size: 25px; border-radius: 50%; padding: 0 8px; font-weight: 500; color: #000; background-color: #fff;}
+
+.footer .padding-soc { margin-top: 15px; }
+.footer .padding-cont { margin-top: 10px; }
+.footer .sub-email input { margin-left: 18px; width: 250px; padding: 10px; }

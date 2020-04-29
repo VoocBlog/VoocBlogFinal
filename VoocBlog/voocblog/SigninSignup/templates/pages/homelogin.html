@@ -5,16 +5,16 @@
 {% endblock title %}
 
 {% block navi_bar_login %}
-    {% comment %} {% for user in Query %}
+    {% for user in Query %}
         <div class="navigation-bar">
             <ul class="bg-nav-bar">
-                <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+                <li><a href="{% url 'blog' %}" value="showtext">Đăng bài</a></li>
                 <li><a href="{% url 'loginprofile' %}">Hello, {{user.last_name}} {{user.first_name}}! </a></li>
-                <li><a href="{% url 'logout' %}">Đăng suất</a></li>             
+                <li><a href="{% url 'logout' %}">Đăng xuất</a></li>             
             </ul>
         </div>
-    {% endfor %} {% endcomment %}
-    {% if user is None %}
+    {% endfor %}
+    {% comment %} {% if user is None %}
         <div class="navigation-bar">
             <ul class="bg-nav-bar">
                 <li><a href="{% url 'blog' %}" value="showtext">Đăng bài</a></li>
@@ -25,12 +25,12 @@
     {% else %}
         <div class="navigation-bar">
             <ul class="bg-nav-bar">
-                <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+                <li><a href="{% url 'blog' %}" value="showtext">Đăng bài</a></li>
                 <li><a href="{% url 'loginprofile' %}">Hello, {{user.last_name}} {{user.first_name}}! </a></li>
                 <li><a href="{% url 'logout' %}">Đăng suất</a></li>             
             </ul>
         </div>
-    {% endif %}
+    {% endif %} {% endcomment %}
     
 {% endblock  %}
 

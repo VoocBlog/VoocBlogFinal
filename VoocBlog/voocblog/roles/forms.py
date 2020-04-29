@@ -15,8 +15,8 @@ class PostForm(forms.ModelForm):
         ]
         widgets = {
             'title_post': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Tiêu Đề Bài Viết...'}),
-            'body_post': forms.Textarea(attrs={'class': 'new-class-name two', 'placeholder':'Nội Dung Bài Viết...',"rows":19, 'cols':149, 'style': 'padding: 10px; border-radius: 5px'}),
-            'image_post': forms.FileInput(attrs={'class': 'form-control', 'placeholder':'Tải Hình Ảnh Lên'}),
+            'body_post': forms.Textarea(attrs={'class': 'new-class-name two', 'placeholder':'Nội Dung Bài Viết...',"cols": 82, "rows":19, 'style': 'padding: 10px; border-radius: 5px'}),
+            'image_post': forms.FileInput(attrs={'class': 'form-control', 'placeholder':'Tải Hình Ảnh Lên', 'style': 'height: 45px'}),
             'category': forms.Select(attrs={'class': 'form-control', 'placeholder':'Chọn Thể Loại', 'style': 'margin-bottom: 20px'}),
         }
 # class abc(forms .Form):

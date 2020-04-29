@@ -16,7 +16,7 @@
     {% if user.username %}
         <div class="navigation-bar">
             <ul class="bg-nav-bar">
-                <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+                <li><a href="{% url 'blog' %}" value="showtext">Đăng bài</a></li>
                 <li><a href="{% url 'signin' %}">Đăng nhập</a></li>
                 <li><a href="{% url 'signup' %}">Đăng ký</a></li>             
             </ul>
@@ -24,7 +24,7 @@
     {% else %}
         <div class="navigation-bar">
             <ul class="bg-nav-bar">
-                <li><a href="#posting-tab" value="showtext">Đăng bài</a></li>
+                <li><a href="{% url 'blog' %}" value="showtext">Đăng bài</a></li>
                 <li><a href="{% url 'loginprofile' %}">Hello, {{user.last_name}} {{user.first_name}}! </a></li>
                 <li><a href="{% url 'logout' %}">Đăng suất</a></li>             
             </ul>
